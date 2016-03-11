@@ -1,10 +1,5 @@
-#lulu
-##lulu
-###lulu
-```
-lulu notes
-```
 
+#lulu notes
 ![lulu](./_resources/lulu.jpg)
 
 
