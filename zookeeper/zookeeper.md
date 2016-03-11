@@ -1,5 +1,3 @@
-zookeeper
-=======================
 #1.进入zookeeper客户端
 ```
 cd /zookeeper/bin
