@@ -1,4 +1,4 @@
-#未整理
+#1.未整理
 ```
 启动thrift：
 cd hbase/bin
