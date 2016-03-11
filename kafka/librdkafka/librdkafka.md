@@ -1,4 +1,4 @@
-#1.例子使用
+#1.librdkafka例子使用
 ```
 cd /librdkafka/example
 ./rdkafka_example_cpp -P -b 192.168.18.76:9092 -p 0 -t LULU_TEST        #生产者
