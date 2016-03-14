@@ -13,3 +13,6 @@ cat /dev/urandom | base64 | head -n1
 find . -name '*.cpp' | xargs cat | grep . | wc -l
 find . -name '*.h' | xargs cat | grep . | wc -l
 ```
+
+#4.linux各模块工具
+![linux各模块工具](../_image/linux_debug.png)
