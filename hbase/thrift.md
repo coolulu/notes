@@ -71,7 +71,10 @@ C-W-W(422694569) 16:42:38
 之前我加了（）了，(PrefixFilter ('2019618-abc-10000-a')
 Justin(1159135420) 16:43:14
 https://hbase.apache.org/book.html#thrift.filter_language 官方文档，这块有介绍。你可以看看。
-
+C-W-W(422694569) 16:57:40
+@Justin scan 'tag0',{FILTER=> "(PrefixFilter ('2019618-tag-10000-a') OR (PrefixFilter ('2019356-tag-10000-a')"}  这种形式的过滤，性能应该不会差吧，也是按row取扫描的？？
+C-W-W(422694569) 16:58:09
+扫描多个row区间
 
 
 ```
