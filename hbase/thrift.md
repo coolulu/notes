@@ -2,8 +2,7 @@
 ```
 cd hbase/bin
 ./hbase-daemon.sh start thrift2
-检查thrift端口
-netstat -ln | grep 9090
+netstat -ln | grep 9090            #检查hbase thrift端口
 ```
 
 #2.未整理
