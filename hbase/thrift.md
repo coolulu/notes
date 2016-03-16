@@ -57,4 +57,21 @@ http://hbase.apache.org/0.94/book/thrift.html
 郑举  16:19:59
 http://www.hadooptpoint.com/filters-in-hbase-shell/
 filter shell用法
+
+-------------------------------
+Justin(1159135420) 16:37:17
+@C-W-W TScan 的 _set_filterString 的参数应该这样设置scan.__set_filterString("PrefixFilter('2019618-abc-10000-a')");
+Justin(1159135420) 16:38:21
+或者使用正则表达式  scan.__set_filterString("RowFilter(=,'regexstring:^" + startAndPrefix + "')");
+C-W-W(422694569) 16:41:39
+@Justin 按你说的能正确执行，多谢
+Justin(1159135420) 16:42:33
+可以，我在用hbase thrfit1的接口。
+C-W-W(422694569) 16:42:38
+之前我加了（）了，(PrefixFilter ('2019618-abc-10000-a')
+Justin(1159135420) 16:43:14
+https://hbase.apache.org/book.html#thrift.filter_language 官方文档，这块有介绍。你可以看看。
+
+
+
 ```
