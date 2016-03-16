@@ -1,12 +1,13 @@
-#1.未整理
+#1.启动hbase thrift
 ```
-启动thrift：
 cd hbase/bin
 ./hbase-daemon.sh start thrift2
 检查thrift端口
 netstat -ln | grep 9090
- 
-------------------------------------------------------------------------------------------------------------
+```
+
+#2.未整理
+```
 郑举  14:54:32
 测了一下，c++里filter可以这么写：
 std::string filterStr;
