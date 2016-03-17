@@ -19,6 +19,6 @@ find . -name '*.h' | xargs cat | grep . | wc -l
 
 #5.date
 ```
-$ date -d @1456329600     #时间戳转字符串时间
+date -d @1456329600     #时间戳转字符串时间
 Thu Feb 25 00:00:00 CST 2016
 ```
