@@ -6,5 +6,5 @@ cd /librdkafka/example
 ./rdkafka_consumer_example_cpp -g GROUP -b 192.168.18.76:9092 LULU_TEST             #消费组
 ./rdkafka_example_cpp -L -b 192.168.18.76:9092 | grep LULU_TEST                     #查看主题
 ./rdkafka_consumer_example -D -b 192.168.18.76:9092 -g OperationalDecisionPlatform  #查看某消费组有几个程序连接以及IP等
-./rdkafka_consumer_example -O -b 192.168.18.76:9092 -g GROUP_8 LULU_TEST_0:0        #查看某消费组的已经提交到[主题:分区]的offset
+./rdkafka_consumer_example -O -b 192.168.18.76:9092 -g GROUP LULU_TEST:0        #查看某消费组的已经提交到[主题:分区]的offset
 ```
