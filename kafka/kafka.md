@@ -10,7 +10,7 @@ bin/kafka-server-start.sh config/server.properties &
 cd kafka/
 vim config/server.properties
 
-增加选项
+增加选项,消息大小修改为10M
 #This is largest message size Kafka will allow to be appended to this topic. Note that if you increase this size you must also increase your consumer's fetch size so they can fetch messages this large.
 #max allow is (10MB)
 message.max.bytes=10485760
