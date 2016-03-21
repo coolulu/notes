@@ -22,3 +22,8 @@ find . -name '*.h' | xargs cat | grep . | wc -l
 date -d @1456329600     #时间戳转字符串时间
 Thu Feb 25 00:00:00 CST 2016
 ```
+#6.top
+```
+在top中按M(按内存排序), P(按cpu占有率排序)
+top -H -p 进程id #查看进程里的线程
+```
