@@ -5,7 +5,13 @@ cd hbase/bin
 netstat -ln | grep 9090            #检查hbase thrift端口
 ```
 
-#2.未整理
+#2.修改hbase thrift内存大小
+```
+vim hbase/conf/hbase-env.sh
+export HBASE_THRIFT_OPTS="$HBASE_THRIFT_OPTS $HBASE_JMX_BASE -Xmx8g -Xms8g -Xmn2g"    #修改成8g内存
+```
+
+#3.未整理
 ```
 郑举  14:54:32
 测了一下，c++里filter可以这么写：
