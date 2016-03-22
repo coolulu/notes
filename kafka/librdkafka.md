@@ -8,3 +8,10 @@ cd /librdkafka/example
 ./rdkafka_consumer_example -D -b 192.168.18.76:9092 -g GROUP_LULU                   #查看某消费组有几个程序连接以及IP等
 ./rdkafka_consumer_example -O -b 192.168.18.76:9092 -g GROUP_LULU LULU_TEST:0       #查看某消费组的已经提交到[主题:分区]的offset
 ```
+
+#2.配置项message.max.bytes和fetch.message.max.bytes
+```
+注意fetch.message.max.bytes要大于等于message.max.bytes,
+否则一个message.max.bytes超过fetch.message.max.bytes消息会导致消费者和消费组堵住这个主题，
+永远收不到消息
+```
