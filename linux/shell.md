@@ -27,3 +27,10 @@ Thu Feb 25 00:00:00 CST 2016
 在top中按M(按内存排序), P(按cpu占有率排序)
 top -H -p 进程id #查看进程里的线程
 ```
+
+#7.gstack
+```
+查看进程或线程的堆栈，方便定位cpu占有率高的问题
+gstack 进程id
+gstack 线程id
+```
