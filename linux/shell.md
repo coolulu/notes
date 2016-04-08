@@ -34,3 +34,8 @@ top -H -p 进程id #查看进程里的线程
 gstack 进程id
 gstack 线程id
 ```
+
+#8.tar
+```
+
+```
