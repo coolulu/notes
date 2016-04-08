@@ -37,6 +37,6 @@ gstack 线程id
 
 #8.tar
 ```
-tar zxvf filename.tar.gz
-tar jxvf filename.tar.bz2
+tar zxvf *.tar.gz
+tar jxvf *.tar.bz2
 ```
