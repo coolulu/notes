@@ -1,4 +1,4 @@
-#1.HBase表重命名
+#1.hbase表重命名
 ```
 hbase shell> disable 'tableName'
 hbase shell> snapshot 'tableName', 'tableSnapshot'
