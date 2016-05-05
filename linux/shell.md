@@ -88,7 +88,7 @@ tar jxvf *.tar.bz2
 
 #18.gerp
 ```
-grep -v 'grep'  #反相匹配
+grep -v 'grep'  #反向匹配
 ```
 
 #19.sed
