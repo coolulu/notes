@@ -1,7 +1,8 @@
-#1.杀死占用的端口进程 或者 遇到 Address already in use 
-```
-fuser -k 9999/tcp
-```
+#1.linux各模块工具
+![linux各模块工具](../_image/linux_debug.png)
+![linux各模块工具](../_image/linux_tuning.jpg)
+![linux各模块工具](../_image/linux_benchmark.jpg)
+![linux各模块工具](../_image/linux_sar.jpg)
 
 #2.生成随机密钥：
 ```
@@ -14,17 +15,17 @@ find . -name '*.cpp' | xargs cat | grep . | wc -l
 find . -name '*.h' | xargs cat | grep . | wc -l
 ```
 
-#4.linux各模块工具
-![linux各模块工具](../_image/linux_debug.png)
-![linux各模块工具](../_image/linux_tuning.jpg)
-![linux各模块工具](../_image/linux_benchmark.jpg)
-![linux各模块工具](../_image/linux_sar.jpg)
+#4.杀死占用的端口进程 或者 遇到 Address already in use 
+```
+fuser -k 9999/tcp
+```
 
 #5.date
 ```
 date -d @1456329600     #时间戳转字符串时间
 Thu Feb 25 00:00:00 CST 2016
 ```
+
 #6.top
 ```
 在top中按M(按内存排序), P(按cpu占有率排序)
