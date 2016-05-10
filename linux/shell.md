@@ -16,6 +16,9 @@ find . -name '*.h' | xargs cat | grep . | wc -l
 
 #4.linux各模块工具
 ![linux各模块工具](../_image/linux_debug.png)
+![linux各模块工具](../_image/linux_tuning.jpg)
+![linux各模块工具](../_image/linux_benchmark.jpg)
+![linux各模块工具](../_image/linux_sar.jpg)
 
 #5.date
 ```
