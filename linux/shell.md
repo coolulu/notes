@@ -115,9 +115,9 @@ ps -ef | grep MyProc | grep -v 'grep'  #反向匹配
 
 ```
 
-#22.nm
+#23.nm
 ```
-nm -C prog_cpp
+nm a.out/a.so/a.a   #可以查看目标程序,动态库,静态库是否这个接口函数(cpp的程序/静态库/动态库加-C)
 
 nm 命令使用以下符号（用同样的字符表示弱符号作为全局符号）之一来表示文件符号类型：
 A    Global absolute 符号。
