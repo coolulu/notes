@@ -109,3 +109,35 @@ ps -ef | grep MyProc | grep -v 'grep'  #反向匹配
 ```
 
 ```
+
+#22.ldd
+```
+
+```
+
+#22.nm
+```
+nm -C prog_cpp
+
+nm 命令使用以下符号（用同样的字符表示弱符号作为全局符号）之一来表示文件符号类型：
+A    Global absolute 符号。
+a    Local absolute 符号。
+B    Global bss 符号。
+b    Local bss 符号。
+D    Global data 符号。
+d    Local data 符号。
+f    源文件名称符号。
+T    Global text 符号。
+t    Local text 符号。
+U    未定义符号。
+
+标志:
+-C    限制解码（demangle） C++ 名称。缺省是解码所有 C++ 符号名。
+C++ 对象文件中的符号在被使用前它们的名称已经被解码了。
+-d    用十进制显示符号的值和大小。这是缺省的。
+-e    只显示静态的和外部的（全局）符号。
+-f    显示完整的输出，包括冗余的 .text、 .data 以及 .bss 符号，这些在通常都是被限制的。
+-g    只显示外部的（全局）符号。
+-h    限制输出头数据的显示。
+-l    通过给 WEAK 符号的编码键附加一个 * 来区分 WEAK 和 GLOBAL 符号。
+```
