@@ -164,7 +164,7 @@ C++ 对象文件中的符号在被使用前它们的名称已经被解码了。
 
 #28.perf
 ```
-程序性能调优
+程序性能分析调优：https://perf.wiki.kernel.org/index.php/Tutorial
 perf生成火焰图: http://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html
 
 ```
