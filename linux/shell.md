@@ -168,3 +168,8 @@ C++ 对象文件中的符号在被使用前它们的名称已经被解码了。
 perf生成火焰图: http://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html
 
 ```
+
+#29.systemtap
+```
+
+```
