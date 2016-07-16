@@ -165,6 +165,10 @@ C++ 对象文件中的符号在被使用前它们的名称已经被解码了。
 #29.size
 ```
 查看ELF文件里各种'段'的长度
+size a.out
+size b.o
+size c.a
+size d.so
 ```
 
 #30.ld
