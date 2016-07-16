@@ -179,7 +179,7 @@ perf生成火焰图: http://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html
 词法解析
 ```
 
-#31.besion/yacc
+#31.bison/yacc
 ```
 语法解析
 ```
