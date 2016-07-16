@@ -162,29 +162,34 @@ C++ 对象文件中的符号在被使用前它们的名称已经被解码了。
 
 ```
 
-#28.ld
+#29.size
+```
+查看ELF文件里各种段的长度
+```
+
+#30.ld
 ```
 
 ```
 
-#29.perf
+#31.perf
 ```
 程序性能分析调优：https://perf.wiki.kernel.org/index.php/Main_Page
 perf生成火焰图: http://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html
 
 ```
 
-#30.systemtap
+#32.systemtap
 ```
 
 ```
 
-#31.flex(lex)
+#32.flex(lex)
 ```
 词法解析
 ```
 
-#32.bison(yacc)
+#33.bison(yacc)
 ```
 语法解析
 ```
