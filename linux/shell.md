@@ -204,3 +204,14 @@ $ c++filt _ZN1N1C4funcEi    #解析被修饰过的名称
 N::C::func(int)
 ```
 
+#35.strip
+```
+$ readelf -a main | grep debug
+[28] .debug_aranges    PROGBITS         0000000000000000  00001061
+[29] .debug_info       PROGBITS         0000000000000000  00001091
+[30] .debug_abbrev     PROGBITS         0000000000000000  00001137
+[31] .debug_line       PROGBITS         0000000000000000  0000118a
+[32] .debug_str        PROGBITS         0000000000000000  000011c9
+$ strip main                #去掉ELF文件的调试信息
+$ readelf -a main | grep debug
+```
