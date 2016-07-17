@@ -214,4 +214,5 @@ $ readelf -a main | grep debug
 [32] .debug_str        PROGBITS         0000000000000000  000011c9
 $ strip main                #去掉ELF文件的调试信息
 $ readelf -a main | grep debug
+$
 ```
