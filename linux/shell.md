@@ -198,4 +198,10 @@ perf生成火焰图: http://www.brendangregg.com/FlameGraphs/cpuflamegraphs.html
 语法解析
 ```
 
+#34.c++filt
+```
+#解析被修饰过的名称
+$ c++filt _ZN1N1C4funcEi
+N::C::func(int)
+```
 
