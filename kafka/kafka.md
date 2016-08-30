@@ -22,3 +22,7 @@ vim bin/kafka-server-start.sh
 修改 export KAFKA_HEAP_OPTS="-Xmx1G –Xms1G"
 为   export KAFKA_HEAP_OPTS="-Xmx2G -Xms2G"
 ```
+#3.Adjust default values of log.retention.hours and offsets.retention.minutes
+```
+https://issues.apache.org/jira/browse/KAFKA-3806
+```
