@@ -24,5 +24,5 @@ vim bin/kafka-server-start.sh
 ```
 #3.Adjust default values of log.retention.hours and offsets.retention.minutes
 ```
-[https://issues.apache.org/jira/browse/KAFKA-3806](https://issues.apache.org/jira/browse/KAFKA-3806)
+![https://issues.apache.org/jira/browse/KAFKA-3806](https://issues.apache.org/jira/browse/KAFKA-3806)
 ```
