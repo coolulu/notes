@@ -26,3 +26,10 @@ vim bin/kafka-server-start.sh
 ```
 https://issues.apache.org/jira/browse/KAFKA-3806
 ```
+#4.删除kafka主题
+```
+修改kafka的config/server.properties
+添加delete.topic.enable=true
+
+bin/kafka-topics.sh --delete --zookeeper zookeeper01:2181,zookeeper02:2181,zookeeper03:2181/kafka --topic LULU_TEST
+```
