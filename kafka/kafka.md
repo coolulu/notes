@@ -33,3 +33,12 @@ https://issues.apache.org/jira/browse/KAFKA-3806
 
 bin/kafka-topics.sh --delete --zookeeper zookeeper01:2181,zookeeper02:2181,zookeeper03:2181/kafka --topic LULU_TEST
 ```
+#5.压测工具
+```
+#生产者压测工具
+#--producer-props参考  http://kafka.apache.org/documentation#producerconfigs
+bin/kafka-producer-perf-test.sh --topic TEST_01 --num-records 1000000 --record-size 1000 --producer-props bootstrap.servers=kafka01:9092,kafka02:9092 --throughput 100000
+
+#消费者压测工具
+bin/kafka-consumer-perf-test.sh --broker-list kafka01:9092,kafka02:9092 --zookeeper zookeeper01:2181,zookeeper02:2181/kafka --topic TEST_01 --messages 1000000 --message-size 1000 --group gid_test
+```
