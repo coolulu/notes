@@ -52,7 +52,7 @@ tar jxvf *.tar.bz2
 
 #10.netstat
 ```
-
+netstat -n | awk '/^tcp/ {++S[$NF]} END {for(a in S) print a, S[a]}'   #查看tcp各状态的连接数
 ```
 
 #11.nc
