@@ -784,7 +784,7 @@ db.runCommand({ listShards : 1})，返回
 	"state" : 1
 }
 
-在运行db.adminCommand( { removeShard : "shard_4" } )，直到返回
+在运行db.adminCommand( { removeShard : "shard_4" } )，返回
 {
 	"msg" : "draining ongoing",
 	"state" : "ongoing",
