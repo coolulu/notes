@@ -13,32 +13,32 @@
 #### 集群IP端口分配
 ```
 mongos:
-	192.168.226.128:27101
+    192.168.226.128:27101
 
 config:
-	1: 192.168.226.128:27001
-	2: 192.168.226.128:27002
-	3: 192.168.226.128:27003
+    1: 192.168.226.128:27001
+    2: 192.168.226.128:27002
+    3: 192.168.226.128:27003
 
 shard_1:
-	1: 192.168.226.128:27211
-	2: 192.168.226.128:27212
-	3: 192.168.226.128:27213
+    1: 192.168.226.128:27211
+    2: 192.168.226.128:27212
+    3: 192.168.226.128:27213
 
 shard_2:
-	1: 192.168.226.128:27221
-	2: 192.168.226.128:27222
-	3: 192.168.226.128:27223
+    1: 192.168.226.128:27221
+    2: 192.168.226.128:27222
+    3: 192.168.226.128:27223
 
 shard_3
-	1: 192.168.226.128:27231
-	2: 192.168.226.128:27232
-	3: 192.168.226.128:27233
+    1: 192.168.226.128:27231
+    2: 192.168.226.128:27232
+    3: 192.168.226.128:27233
 
 shard_4  #添加/删除分片时用到
-	1: 192.168.226.128:27241
-	2: 192.168.226.128:27242
-	3: 192.168.226.128:27243
+    1: 192.168.226.128:27241
+    2: 192.168.226.128:27242
+    3: 192.168.226.128:27243
 ```
 
 #### 创建用户
@@ -699,9 +699,9 @@ db.createCollection("test_2")
 #### 分片设置
 ```
 use admin
-db.runCommand({"enablesharding":"im_test"})					#设置分片库
-#db.runCommand({"shardcollection":"im_test.test", "key":{"_id":1}}) 		#设置分片文档
-db.runCommand({"shardcollection":"im_test.test_2", "key":{"kk":"hashed"}}) 	#设置哈希分片文档
+db.runCommand({"enablesharding":"im_test"})                 #设置分片库
+#db.runCommand({"shardcollection":"im_test.test", "key":{"_id":1}})         #设置分片文档
+db.runCommand({"shardcollection":"im_test.test_2", "key":{"kk":"hashed"}})  #设置哈希分片文档
 ```
 [参考](https://docs.mongodb.com/manual/core/sharding-shard-key/)
 
@@ -711,7 +711,7 @@ db.runCommand({"shardcollection":"im_test.test_2", "key":{"kk":"hashed"}}) 	#设
 ```
 use im_test
 for (var i = 0; i < 100; i++) {
-	db.test_2.insert({kk: i, name: "MACLEAN"})
+    db.test_2.insert({kk: i, name: "MACLEAN"})
 }
 ```
 
@@ -727,9 +727,9 @@ db.settings.find()
 
 #### 平衡分片
 ```
-sh.getBalancerState()	#是否开启平衡
-sh.isBalancerRunning() 	#是否正在平衡
-sh.startBalancer()	#手动执行平衡
+sh.getBalancerState()   #是否开启平衡
+sh.isBalancerRunning()  #是否正在平衡
+sh.startBalancer()  #手动执行平衡
 ```
 [参考](https://docs.mongodb.com/manual/tutorial/manage-sharded-cluster-balancer/)
 
@@ -766,51 +766,51 @@ sh.status()
 ```
 db.adminCommand({ removeShard : "shard_4" }),返回
 {
-	"msg" : "draining started successfully",
-	"state" : "started",
-	"shard" : "shard_3",
-	"note" : "you need to drop or movePrimary these databases",
-	"dbsToMove" : [ ],
-	"ok" : 1
+    "msg" : "draining started successfully",
+    "state" : "started",
+    "shard" : "shard_3",
+    "note" : "you need to drop or movePrimary these databases",
+    "dbsToMove" : [ ],
+    "ok" : 1
 }
 
 sh.status()查看shard_4已经是 shards: shard_4已经"draining" : true
 
 db.runCommand({ listShards : 1})，返回
 {
-	"_id" : "shard_4",
-	"host" : "shard_4/192.168.226.128:27241,192.168.226.128:27243",
-	"draining" : true,
-	"state" : 1
+    "_id" : "shard_4",
+    "host" : "shard_4/192.168.226.128:27241,192.168.226.128:27243",
+    "draining" : true,
+    "state" : 1
 }
 
 在运行db.adminCommand( { removeShard : "shard_4" } )，返回
 {
-	"msg" : "draining ongoing",
-	"state" : "ongoing",
-	"remaining" : {
-		"chunks" : NumberLong(5),
-		"dbs" : NumberLong(0)
-	},
-	"note" : "you need to drop or movePrimary these databases",
-	"dbsToMove" : [ ],
-	"ok" : 1
+    "msg" : "draining ongoing",
+    "state" : "ongoing",
+    "remaining" : {
+        "chunks" : NumberLong(5),
+        "dbs" : NumberLong(0)
+    },
+    "note" : "you need to drop or movePrimary these databases",
+    "dbsToMove" : [ ],
+    "ok" : 1
 }
 
 在运行db.adminCommand( { removeShard : "shard_4" } )，直到返回
 {
-	"msg" : "removeshard completed successfully",
-	"state" : "completed",
-	"shard" : "shard_4",
-	"ok" : 1
+    "msg" : "removeshard completed successfully",
+    "state" : "completed",
+    "shard" : "shard_4",
+    "ok" : 1
 }
 
 在运行一次db.adminCommand( { removeShard : "shard_4" } )，返回
 {
-	"ok" : 0,
-	"errmsg" : "Could not drop shard 'shard_4' because it does not exist",
-	"code" : 70,
-	"codeName" : "ShardNotFound"
+    "ok" : 0,
+    "errmsg" : "Could not drop shard 'shard_4' because it does not exist",
+    "code" : 70,
+    "codeName" : "ShardNotFound"
 }
 
 sh.status() 查看shard_4已经不再shards里，
@@ -871,11 +871,11 @@ mongorestore --host 127.0.0.1 --port 27101 -d im_test dump/im_test/
 ```
 mongotop不能监控mongos,只能监控mongod
 [mg@localhost mongodb]$ mongotop --host 127.0.0.1 --port 27101 10
-2018-05-04T21:17:32.826+0800	cannot run mongotop against a mongos
+2018-05-04T21:17:32.826+0800    cannot run mongotop against a mongos
 
 #10是间隔时间
 [mg@localhost mongodb]$  mongotop --host 127.0.0.1 --port 27211 10
-2018-05-04T21:19:59.121+0800	connected to: 127.0.0.1:27211
+2018-05-04T21:19:59.121+0800    connected to: 127.0.0.1:27211
 
                     ns    total    read    write    2018-05-04T21:20:04+08:00
         local.oplog.rs      2ms     2ms      0ms
@@ -910,29 +910,29 @@ mongostat --host 127.0.0.1 --port 27101
 ### role类型
 ```
 数据库用户角色（Database User Roles）：
-	read：授予User只读数据的权限
-	readWrite：授予User读写数据的权限
+    read：授予User只读数据的权限
+    readWrite：授予User读写数据的权限
 
 数据库管理角色（Database Administration Roles）：
-	dbAdmin：在当前dB中执行管理操作
-	dbOwner：在当前DB中执行任意操作
-	userAdmin：在当前DB中管理User
+    dbAdmin：在当前dB中执行管理操作
+    dbOwner：在当前DB中执行任意操作
+    userAdmin：在当前DB中管理User
 
 备份和还原角色（Backup and Restoration Roles）：
-	backup
-	restore
+    backup
+    restore
 
 跨库角色（All-Database Roles）：
-	readAnyDatabase：授予在所有数据库上读取数据的权限
-	readWriteAnyDatabase：授予在所有数据库上读写数据的权限
-	userAdminAnyDatabase：授予在所有数据库上管理User的权限
-	dbAdminAnyDatabase：授予管理所有数据库的权限l
+    readAnyDatabase：授予在所有数据库上读取数据的权限
+    readWriteAnyDatabase：授予在所有数据库上读写数据的权限
+    userAdminAnyDatabase：授予在所有数据库上管理User的权限
+    dbAdminAnyDatabase：授予管理所有数据库的权限l
 
 集群管理角色（Cluster Administration Roles）：
-	clusterAdmin：授予管理集群的最高权限
-	clusterManager：授予管理和监控集群的权限
-	clusterMonitor：授予监控集群的权限，对监控工具具有readonly的权限
-	hostManager：管理Server
+    clusterAdmin：授予管理集群的最高权限
+    clusterManager：授予管理和监控集群的权限
+    clusterMonitor：授予监控集群的权限，对监控工具具有readonly的权限
+    hostManager：管理Server
 ```
 [参考](https://docs.mongodb.com/manual/reference/built-in-roles/index.html)
 
