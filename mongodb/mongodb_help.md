@@ -692,6 +692,7 @@ db.runCommand({"enablesharding":"im_test"})					#设置分片库
 db.runCommand({"shardcollection":"im_test.test_2", "key":{"kk":"hashed"}}) 	#设置哈希分片文档
 ```
 [参考](https://docs.mongodb.com/manual/core/sharding-shard-key/)
+
 [参考](https://docs.mongodb.com/manual/core/hashed-sharding/)
 
 #### 测试分片
