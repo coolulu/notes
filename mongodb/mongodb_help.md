@@ -189,6 +189,7 @@ replication:
 sharding:
     clusterRole: configsvr
 
+-----------------------------------------
 [mg@localhost etc]$ cat config_2.conf
 ## content
 systemLog:
@@ -218,6 +219,7 @@ replication:
 sharding:
     clusterRole: configsvr
 
+-----------------------------------------
 [mg@localhost etc]$ cat config_3.conf
 ## content
 systemLog:
@@ -283,6 +285,7 @@ replication:
 sharding:
     clusterRole: shardsvr
 
+-----------------------------------------
 [mg@localhost etc]$ cat shard_2.conf
 #配置文件内容
 # where to write logging data.
@@ -316,6 +319,7 @@ replication:
 sharding:
     clusterRole: shardsvr
 
+-----------------------------------------
 [mg@localhost etc]$ cat shard_3.conf
 #配置文件内容
 # where to write logging data.
@@ -385,6 +389,7 @@ replication:
 sharding:
     clusterRole: shardsvr
 
+-----------------------------------------
 [mg@localhost etc]$ cat shard_2.conf
 #配置文件内容
 # where to write logging data.
@@ -418,6 +423,7 @@ replication:
 sharding:
     clusterRole: shardsvr
 
+-----------------------------------------
 [mg@localhost etc]$ cat shard_3.conf
 #配置文件内容
 # where to write logging data.
@@ -487,6 +493,7 @@ replication:
 sharding:
     clusterRole: shardsvr
 
+-----------------------------------------
 [mg@localhost etc]$ cat shard_2.conf
 #配置文件内容
 # where to write logging data.
@@ -520,6 +527,7 @@ replication:
 sharding:
     clusterRole: shardsvr
 
+-----------------------------------------
 [mg@localhost etc]$ cat shard_3.conf
 #配置文件内容
 # where to write logging data.
@@ -606,6 +614,7 @@ config = {
         {_id : 3, host : "192.168.226.128:27003" }
     ]
 }
+
 rs.initiate(config);
 rs.status()
 ```
@@ -623,6 +632,7 @@ config = {
         {_id : 3, host : "192.168.226.128:27213" }
     ]
 }
+
 rs.initiate(config);
 rs.status()
 ```
@@ -640,6 +650,7 @@ config = {
         {_id : 3, host : "192.168.226.128:27223" }
     ]
 }
+
 rs.initiate(config);
 rs.status()
 ```
@@ -657,6 +668,7 @@ config = {
         {_id : 3, host : "192.168.226.128:27233" }
     ]
 }
+
 rs.initiate(config);
 rs.status()
 ```
@@ -737,6 +749,7 @@ config = {
         {_id : 3, host : "192.168.226.128:27243" }
     ]
 }
+
 rs.initiate(config);
 rs.status()
 ```
@@ -760,7 +773,9 @@ db.adminCommand({ removeShard : "shard_4" }),返回
 	"dbsToMove" : [ ],
 	"ok" : 1
 }
+
 sh.status()查看shard_4已经是 shards: shard_4已经"draining" : true
+
 db.runCommand({ listShards : 1})，返回
 {
 	"_id" : "shard_4",
@@ -768,6 +783,7 @@ db.runCommand({ listShards : 1})，返回
 	"draining" : true,
 	"state" : 1
 }
+
 在运行db.adminCommand( { removeShard : "shard_4" } )，直到返回
 {
 	"msg" : "draining ongoing",
@@ -780,6 +796,7 @@ db.runCommand({ listShards : 1})，返回
 	"dbsToMove" : [ ],
 	"ok" : 1
 }
+
 在运行db.adminCommand( { removeShard : "shard_4" } )，直到返回
 {
 	"msg" : "removeshard completed successfully",
@@ -787,6 +804,7 @@ db.runCommand({ listShards : 1})，返回
 	"shard" : "shard_4",
 	"ok" : 1
 }
+
 在运行一次db.adminCommand( { removeShard : "shard_4" } )，返回
 {
 	"ok" : 0,
@@ -823,8 +841,9 @@ dump/im_test/test_4.bson
 ```
 删除数据库im_test
 创建数据库im_test,设置片键
-use admin
 use im_test
+
+use admin
 db.runCommand({"shardcollection":"im_test.test_2", "key":{"kk":"hashed"}})
 db.runCommand({"shardcollection":"im_test.test_3", "key":{"kk":"hashed"}})
 db.runCommand({"shardcollection":"im_test.test_4", "key":{"kk":"hashed"}})
@@ -928,6 +947,7 @@ db.createUser(
      roles: [ {role:"root", db:"admin"} ]
    }
 )
+
 db.system.users.find();
 
 #创建普通用户
