@@ -686,7 +686,7 @@ db.createCollection("test_2")
 #### 分片设置
 ```
 use admin
-db.runCommand({"enablesharding":"im_test"})									#设置分片库
+db.runCommand({"enablesharding":"im_test"})					#设置分片库
 #db.runCommand({"shardcollection":"im_test.test", "key":{"_id":1}}) 		#设置分片文档
 db.runCommand({"shardcollection":"im_test.test_2", "key":{"kk":"hashed"}}) 	#设置哈希分片文档
 ```
@@ -715,7 +715,7 @@ db.settings.find()
 ```
 sh.getBalancerState()	#是否开启平衡
 sh.isBalancerRunning() 	#是否正在平衡
-sh.startBalancer()		#手动执行平衡
+sh.startBalancer()	#手动执行平衡
 ```
 [参考](https://docs.mongodb.com/manual/tutorial/manage-sharded-cluster-balancer/)
 
@@ -849,11 +849,11 @@ mongorestore --host 127.0.0.1 --port 27101 -d im_test dump/im_test/
 ### mongotop
 ```
 mongotop不能监控mongos,只能监控mongod
-[mg@localhost mongodb]$ mongotop --host 127.0.0.1 --port 27101 -5
+[mg@localhost mongodb]$ mongotop --host 127.0.0.1 --port 27101 10
 2018-05-04T21:17:32.826+0800	cannot run mongotop against a mongos
 
-#5是间隔时间
-[mg@localhost mongodb]$  mongotop --host 127.0.0.1 --port 27211 5
+#10是间隔时间
+[mg@localhost mongodb]$  mongotop --host 127.0.0.1 --port 27211 10
 2018-05-04T21:19:59.121+0800	connected to: 127.0.0.1:27211
 
                     ns    total    read    write    2018-05-04T21:20:04+08:00
