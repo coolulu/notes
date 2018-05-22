@@ -9,6 +9,10 @@
 [参考](https://docs.mongodb.com/manual/replication/)
 
 ### 前期准备
+```
+[mg@localhost mongodb]$ ls
+mongodb-linux-x86_64-amazon-3.4.9.tgz
+```
 
 #### 集群IP端口分配
 ```
