@@ -566,6 +566,26 @@ sharding:
     clusterRole: shardsvr
 ```
 
+#### mongos
+```
+[mg@localhost etc]$ cat mongos.conf 
+systemLog:
+  destination: file
+  logAppend: true
+  path: /home/mg/mongodb/mongos/log/mongos.log
+processManagement:
+  fork: true
+  pidFilePath: /home/mg/mongodb/mongos/mongos.pid
+ 
+# network interfaces
+net:
+  port: 27101
+  bindIp: 0.0.0.0
+#监听的配置服务器,只能有1个或者3个 configs为配置服务器的副本集名字
+sharding:
+   configDB: config/192.168.226.128:27001,192.168.226.128:27002,192.168.226.128:27003
+```
+
 ### 启动mongod集群
 ```
 ./start.sh
