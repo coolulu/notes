@@ -152,8 +152,8 @@ filter {
     grok {
         match => {
             "message" => [
-            " collect_event=login %{NUMBER:userid:int} %{WORD:username} %{IP:clientip} %{NUMBER:duration:float}",
-            " collect_event=msg %{WORD:username} %{WORD:msg} %{IP:clientip}"
+                " collect_event=login %{NUMBER:userid:int} %{WORD:username} %{IP:clientip} %{NUMBER:duration:float}",
+                " collect_event=msg %{WORD:username} %{WORD:msg} %{IP:clientip}"
             ]
         }
     }
@@ -168,8 +168,8 @@ output {
     stdout { codec => rubydebug }
 
     elasticsearch {
-    hosts => [ "192.168.226.128:9200" ]
-    index => 'logstash-%{collect_event}-%{+YYYY.MM.dd}'
+        hosts => [ "192.168.226.128:9200" ]
+        index => 'logstash-%{collect_event}-%{+YYYY.MM.dd}'
     }
 }
 ```
@@ -203,8 +203,8 @@ filter {
     grok {
         match => {
             "message"=>[
-            "%{DATA:hostname}\|%{DATA:tag}\|%{DATA:types}\|%{DATA:uid}\|%{GREEDYDATA:msg}",
-            "%{DATA:hostname}\|%{DATA:tag}\|%{GREEDYDATA:msg}"]
+                "%{DATA:hostname}\|%{DATA:tag}\|%{DATA:types}\|%{DATA:uid}\|%{GREEDYDATA:msg}",
+                "%{DATA:hostname}\|%{DATA:tag}\|%{GREEDYDATA:msg}"]
             }
         }
 }
