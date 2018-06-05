@@ -15,6 +15,8 @@ filebeat-6.2.4-linux-x86_64.tar.gz
 logstash-6.2.4.tar.gz
 
 Elasticsearch， Logstash依赖jdk
+
+log <-- filebeat --> logstash --> elasticsearch <-- kibana
 ```
 
 ## 安装jdk
