@@ -47,6 +47,10 @@ passwd elk
 ```
 $ vim config/elasticsearch.yml
 network.host: 0.0.0.0
+
+$vim config/jvm.options
+-Xms1g改成-Xms4g
+-Xmx1g改成-Xmx4g
 ```
 ### 运行
 ```
@@ -91,6 +95,48 @@ $ curl http://127.0.0.1:9200
 }
 ```
 
+### Query-DSL
+```
+http://123.207.236.28:9200/logstash-login_success-2018.07.26/doc/_search?q=userid:1380289829
+
+curl -XGET "http://192.168.1.46:9200/logstash-login_success-*/doc/_search" -H 'Content-Type: application/json' -d'
+{
+  "query": {
+    "bool": {
+      "must": [
+        {
+          "match": {
+            "userid": 1380289829
+          }
+        }
+      ],
+      "filter": [
+        {
+          "range": {
+            "@timestamp": {
+              "gte": "2018-07-15T00:00:00",
+              "lte": "2018-07-19T00:00:00"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "size": 100,
+  "sort": [
+    {
+      "@timestamp": {
+        "order": "desc"
+      }
+    }
+  ]
+}'
+不设置size，默认返回10个
+
+[参考](https://www.elastic.co/guide/en/elasticsearch/reference/6.2/query-dsl.html)
+[参考](https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search.html)
+```
+
 ## Kibana
 
 ### 修改配置
@@ -120,7 +166,7 @@ http://192.168.226.128:5601
 ```
 $ vim filebeat.yml
 enabled: true                           //打开日志监听
-- /home/elk/test_log/*.log              //监听的文件，文件夹
+- /home/elk/test_log/*.log              //监听的文件
 include_lines: ['.* collect_event=.*']  //匹配的关键字
 fields:
     module: region                      //填模块名
@@ -134,7 +180,7 @@ hosts: ["192.168.226.128:5044"]
 ### 运行
 ```
 ./filebeat -c filebeat.yml -e -d "publish" #调试运行
-nohup ./fileheat -c filebeat.yml & #后台运行
+nohup ./filebeat -c filebeat.yml & #后台运行
 ```
 
 ## Logstash
@@ -152,6 +198,7 @@ filter {
     grok {
         match => {
             "message" => [
+                " collect_event=login_success %{NUMBER:userid:int} %{WORD:username} %{IP:clientip} %{NUMBER:dev_type:int} %{NUMBER:proto_ver:int} %{NUMBER:app_ver:int}",
                 " collect_event=login %{NUMBER:userid:int} %{WORD:username} %{IP:clientip} %{NUMBER:duration:float}",
                 " collect_event=msg %{WORD:username} %{WORD:msg} %{IP:clientip}"
             ]
@@ -172,6 +219,11 @@ output {
         index => 'logstash-%{collect_event}-%{+YYYY.MM.dd}'
     }
 }
+
+$vim config/jvm.options
+-Xms1g改成-Xms4g
+-Xmx1g改成-Xmx4g
+
 ```
 
 ### 运行
@@ -184,8 +236,11 @@ nohup bin/logstash -f config/pipelines.yml --config.reload.automatic &
 ```
 echo " collect_event=login 120001 BBB 122.1.1.25 1.2345" >> test.log
 ```
+### grok
 
-### 多项匹配配置
+#### 数据类型
+
+#### 多项匹配配置
 ```
 filter {
     grok {
@@ -224,6 +279,8 @@ $ echo " collect_event=login 120020 UUU 141.1.1.25 20.2345" >> test.log
 所以output的index 必须logstash-开头，否则很多logstash自带的数据结构es显示不出，
 而且logstash-*中不能有大写字母，否则kibana上找不到，无法创建索引
 ```
+
+
 [参考](https://blog.csdn.net/yanggd1987/article/details/50469113)
 
 ## Metricbeat
