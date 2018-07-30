@@ -133,7 +133,9 @@ curl -XGET "http://192.168.1.46:9200/logstash-login_success-*/doc/_search" -H 'C
 }'
 不设置size，默认返回10个
 ```
+
 [参考](https://www.elastic.co/guide/en/elasticsearch/reference/6.2/query-dsl.html)
+
 [参考](https://www.elastic.co/guide/en/elasticsearch/reference/6.2/search.html)
 
 ## Kibana
