@@ -216,3 +216,10 @@ $ strip main                #去掉ELF文件的调试信息
 $ readelf -a main | grep debug
 $
 ```
+#36.网络流量查看工具
+```
+iptraf
+iftop 
+jnettop
+nethogs 
+```
