@@ -48,7 +48,7 @@ passwd elk
 $ vim config/elasticsearch.yml
 network.host: 0.0.0.0
 
-$vim config/jvm.options
+$ vim config/jvm.options
 -Xms1g改成-Xms4g
 -Xmx1g改成-Xmx4g
 ```
@@ -221,7 +221,7 @@ output {
     }
 }
 
-$vim config/jvm.options
+$ vim config/jvm.options
 -Xms1g改成-Xms4g
 -Xmx1g改成-Xmx4g
 
