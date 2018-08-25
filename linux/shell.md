@@ -225,6 +225,6 @@ nethogs
 ```
 #37.json格式化
 ```
-$ jq t.json
+$ cat t.json | jq
 $ python -m json.tool t.json
 ```
