@@ -223,3 +223,8 @@ iftop
 jnettop
 nethogs 
 ```
+#37.json格式化
+```
+jq t.json
+python -m json.tool t.json
+```
